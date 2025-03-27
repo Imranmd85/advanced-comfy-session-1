@@ -10,7 +10,7 @@
     },
     "11": {
         "inputs": {
-            "model_name": "GroundingDINO_SwinB (938MB)"
+            "model_name": "GroundingDINO_SwinT_OGC (694MB)"
         },
         "class_type": "GroundingDinoModelLoader (segment anything)",
         "_meta": {
@@ -20,7 +20,7 @@
     "12": {
         "inputs": {
             "prompt": "Room",
-            "threshold": 0.55,
+            "threshold": 0.3,
             "sam_model": [
                 "10",
                 0
@@ -108,7 +108,7 @@
     },
     "17": {
         "inputs": {
-            "ckpt_name": "epicrealism_naturalSinRC1VAE.safetensors"
+            "ckpt_name": "DreamShaper.safetensors"
         },
         "class_type": "CheckpointLoaderSimple",
         "_meta": {
@@ -133,11 +133,11 @@
     },
     "20": {
         "inputs": {
-            "seed": 543287702895173,
+            "seed": 543287702895204,
             "steps": 20,
             "cfg": 8,
-            "sampler_name": "euler",
-            "scheduler": "normal",
+            "sampler_name": "dpm_adaptive",
+            "scheduler": "sgm_uniform",
             "denoise": 1,
             "model": [
                 "17",
@@ -163,7 +163,7 @@
     },
     "21": {
         "inputs": {
-            "text": "text, watermark",
+            "text": "low quality, blurry, distorted proportions, unrealistic furniture, extra doors or windows, mismatched colors, cluttered space, watermark, text, cartoonish style, broken geometry\n",
             "clip": [
                 "17",
                 1
@@ -213,7 +213,7 @@
             "interpolation": "nearest",
             "method": "keep proportion",
             "condition": "always",
-            "multiple_of": 0,
+            "multiple_of": 64,
             "image": [
                 "65",
                 0
@@ -337,7 +337,7 @@
     },
     "33": {
         "inputs": {
-            "ckpt_name": "epicrealism_naturalSinRC1VAE.safetensors"
+            "ckpt_name": "DreamShaper.safetensors"
         },
         "class_type": "CheckpointLoaderSimple",
         "_meta": {
@@ -359,7 +359,7 @@
     },
     "35": {
         "inputs": {
-            "seed": 263541393012891,
+            "seed": 873249170519322,
             "steps": 40,
             "cfg": 2,
             "sampler_name": "dpmpp_2m_sde",
@@ -533,7 +533,7 @@
     "47": {
         "inputs": {
             "text": [
-                "67",
+                "66",
                 0
             ]
         },
@@ -568,7 +568,7 @@
             "red": 0,
             "green": 0,
             "blue": 0,
-            "mode": "RGB",
+            "mode": "luminance",
             "image": [
                 "51",
                 0
@@ -634,8 +634,8 @@
     },
     "55": {
         "inputs": {
-            "mode": "overlay",
-            "blur_sigma": 10,
+            "mode": "add",
+            "blur_sigma": 0.1,
             "blend_factor": 1,
             "target": [
                 "50",
@@ -764,7 +764,7 @@
             "format": "png",
             "label": "Output Image",
             "quality": 95,
-            "lossless": false,
+            "lossless": true,
             "images": [
                 "58",
                 0
@@ -786,13 +786,14 @@
             "title": "[FS]⚡Load Image (Input)"
         }
     },
-    "67": {
+    "66": {
         "inputs": {
-            "text": "**🛋️ Room Details:**\n- Room Type: `bedroom`\n- Style: `Japandi`\n- Color Palette: `earthy neutrals with black accents`\n- Lighting: `natural morning light`\n\n**🪑 Furniture & Decor:**\n- Main Furniture: `low-profile platform bed, floating nightstands`\n- Decor Elements: `indoor plants, paper lantern pendant, minimalist art`\n- Flooring: `warm wood planks`\n- Wall Treatment: `textured plaster`\n\n**📌 Notes / Important Instructions:**\n- 🚪 Do **not** change the position of doors or windows.\n- 🧱 Keep the existing room layout and wall structure.\n- 🖼️ Only modify furniture, decor, and materials.\n- 📐 Maintain scale and proportions for realism.\n- 📸 Use realistic interior design photography style.\n\n\n**🧠 Prompt for Image Generation:**\n```prompt\nA Japandi style bedroom with a low-profile platform bed and floating nightstands. Decor includes indoor plants, a paper lantern pendant, and minimalist art. The palette is earthy neutrals with black accents, with warm wood plank flooring and textured plaster walls. Lighting is natural morning light. Maintain original window and door positions, preserve existing layout. Realistic, professional interior design rendering.\n"
+            "default_value": "\n",
+            "label": "Background Prompt"
         },
-        "class_type": "Text Multiline",
+        "class_type": "FSLoadText",
         "_meta": {
-            "title": "Text Multiline"
+            "title": "[FS]⚡Load Text (Input)"
         }
     }
 }
