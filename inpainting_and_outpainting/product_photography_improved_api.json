@@ -1,7 +1,7 @@
 {
     "10": {
         "inputs": {
-            "model_name": "sam_vit_h (2.56GB)"
+            "model_name": "sam_vit_b (375MB)"
         },
         "class_type": "SAMModelLoader (segment anything)",
         "_meta": {
@@ -19,8 +19,8 @@
     },
     "12": {
         "inputs": {
-            "prompt": "object",
-            "threshold": 0.35000000000000003,
+            "prompt": "Room",
+            "threshold": 0.55,
             "sam_model": [
                 "10",
                 0
@@ -133,7 +133,7 @@
     },
     "20": {
         "inputs": {
-            "seed": 654689829781574,
+            "seed": 543287702895173,
             "steps": 20,
             "cfg": 8,
             "sampler_name": "euler",
@@ -359,7 +359,7 @@
     },
     "35": {
         "inputs": {
-            "seed": 786506531041769,
+            "seed": 263541393012891,
             "steps": 40,
             "cfg": 2,
             "sampler_name": "dpmpp_2m_sde",
@@ -533,7 +533,7 @@
     "47": {
         "inputs": {
             "text": [
-                "66",
+                "67",
                 0
             ]
         },
@@ -634,8 +634,8 @@
     },
     "55": {
         "inputs": {
-            "mode": "soft_light",
-            "blur_sigma": 5,
+            "mode": "overlay",
+            "blur_sigma": 10,
             "blend_factor": 1,
             "target": [
                 "50",
@@ -777,7 +777,7 @@
     },
     "65": {
         "inputs": {
-            "image": "Empty room.jpg",
+            "image": "Empty room.png",
             "upload": "image",
             "label": "Input Product Image"
         },
@@ -786,14 +786,13 @@
             "title": "[FS]⚡Load Image (Input)"
         }
     },
-    "66": {
+    "67": {
         "inputs": {
-            "default_value": "Design the living room with Sofa, chairs, study table",
-            "label": "Background Prompt"
+            "text": "**🛋️ Room Details:**\n- Room Type: `bedroom`\n- Style: `Japandi`\n- Color Palette: `earthy neutrals with black accents`\n- Lighting: `natural morning light`\n\n**🪑 Furniture & Decor:**\n- Main Furniture: `low-profile platform bed, floating nightstands`\n- Decor Elements: `indoor plants, paper lantern pendant, minimalist art`\n- Flooring: `warm wood planks`\n- Wall Treatment: `textured plaster`\n\n**📌 Notes / Important Instructions:**\n- 🚪 Do **not** change the position of doors or windows.\n- 🧱 Keep the existing room layout and wall structure.\n- 🖼️ Only modify furniture, decor, and materials.\n- 📐 Maintain scale and proportions for realism.\n- 📸 Use realistic interior design photography style.\n\n\n**🧠 Prompt for Image Generation:**\n```prompt\nA Japandi style bedroom with a low-profile platform bed and floating nightstands. Decor includes indoor plants, a paper lantern pendant, and minimalist art. The palette is earthy neutrals with black accents, with warm wood plank flooring and textured plaster walls. Lighting is natural morning light. Maintain original window and door positions, preserve existing layout. Realistic, professional interior design rendering.\n"
         },
-        "class_type": "FSLoadText",
+        "class_type": "Text Multiline",
         "_meta": {
-            "title": "[FS]⚡Load Text (Input)"
+            "title": "Text Multiline"
         }
     }
 }
